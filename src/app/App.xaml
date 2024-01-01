@@ -9,6 +9,9 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <local:PlayerToImageConverter x:Key="PlayerToImage" />
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

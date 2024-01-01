@@ -2,27 +2,44 @@
 
 namespace CloudyTicTacToe;
 
-[QueryProperty(nameof(NewGame), "newgame")]
 public partial class GameBoardPage : ContentPage
 {
+	private GameViewModel _currentGame;
+
 	public GameBoardPage()
 	{
 		InitializeComponent();
+
+		_currentGame = new GameViewModel();
+		_currentGame.GameOver += OnGameOver;
+		
+		BindingContext = _currentGame;
 	}
-	
-	public bool NewGame { get; set; }
-	
-	private async void OnWinClicked(object sender, EventArgs e)
+
+	private async void OnGameOver(object? sender, GameOverEventArgs e)
 	{
-		await this.ShowPopupAsync(new GameResultsPage
+		var vm = new ResultsViewModel(e.State.Winner, e.State.Position);
+
+		var result = await this.ShowPopupAsync(
+			new GameResultsPage(vm)
+			{
+				Size = new Size(
+					Math.Max(320, Width * 0.85),
+					Math.Max(480, Height * 0.85))
+			});
+
+		if (result is true)
 		{
-			State = "Win",
-			Size = new Size(
-				Math.Max(320, Width * 0.85),
-				Math.Max(480, Height * 0.85))
-		});
+			// start a new game
+			_currentGame.Reset();
+		}
+		else
+		{
+			// go home
+			await Shell.Current.GoToAsync("//home");
+		}
 	}
-	
+
 	private async void OnExitClicked(object sender, EventArgs e)
 	{
 		var canExit = false; // if not game over

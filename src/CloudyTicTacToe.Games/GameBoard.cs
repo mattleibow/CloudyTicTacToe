@@ -39,6 +39,9 @@ public class GameBoard
     
     public int Dimension { get; }
 
+    public Player GetPlayer(int x, int y) =>
+        _board[x, y];
+
     public void Play(Player player, int x, int y)
     {
         if (x < 0 || x > Dimension)

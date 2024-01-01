@@ -1,26 +1,28 @@
-﻿using CommunityToolkit.Maui.Views;
+﻿using CloudyTicTacToe.Games;
+using CommunityToolkit.Maui.Views;
 
 namespace CloudyTicTacToe;
 
 public partial class GameResultsPage : Popup
 {
-	public GameResultsPage()
+	private readonly ResultsViewModel _results;
+
+	public GameResultsPage(ResultsViewModel results)
 	{
 		InitializeComponent();
-	}
+		
+		_results = results;
 
-	public string? State { get; set; }
+		BindingContext = _results;
+	}
 
 	private async void OnNewGameClicked(object sender, EventArgs e)
 	{
-		await CloseAsync();
-		await Shell.Current.GoToAsync("..?newgame=true");
+		await CloseAsync(true);
 	}
 
 	private async void OnHomeClicked(object sender, EventArgs e)
 	{
-		await CloseAsync();
-		await Shell.Current.GoToAsync("//home");
+		await CloseAsync(false);
 	}
 }
-
