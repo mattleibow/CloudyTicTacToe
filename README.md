@@ -47,3 +47,21 @@ I am planning on a simple navigation:
 2. Game screen
 3. Game results pop-over with a New Game button to screen 2 or Exit to screen 1
 
+## 3. CI and tests
+
+...
+
+## 4. Basic game code
+
+So I got distracted working on an annoying thing I found. On macOS, it appears there is a small difference with the way action sheets work and so the .NET MAUI code actualy crashes/does nothing: 
+
+ - Bug: https://github.com/dotnet/maui/issues/18156
+ - My PR: https://github.com/dotnet/maui/pull/19629
+
+The fix was easy so I shoulght I would do it. However, the UI tests took long to write because we had no way of getting the alerts and determing what was presented. Anyways, I finished that so back to tic-tac-toe!
+
+...
+
+## 5. Better gameplay
+
+...
