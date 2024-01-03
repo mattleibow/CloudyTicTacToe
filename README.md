@@ -15,6 +15,8 @@ Here is a list of things I am using in no particular order, and with some detail
     which is an "action" that 
     [I can then reference](https://github.com/mattleibow/CloudyTicTacToe/blob/2917564505f54ed88d792735e6087eee35035b43/.github/workflows/build.yml#L18-L19)
     in my [main yaml](https://github.com/mattleibow/CloudyTicTacToe/blob/2917564505f54ed88d792735e6087eee35035b43/.github/workflows/build.yml).
+    * **Test Reporter** - https://github.com/marketplace/actions/test-reporter  
+      Add some test results to the UI.
   * **GitHub Projects** - https://github.com/features/issues  
 * **Rider for macOS** - https://jetbrains.com/rider  
   I used to use Visual Studio for Mac but that is mostly deprecated and not recieving new support for .NET 8. Visual
@@ -164,3 +166,18 @@ The pages were also updated with a few extra interactive elements and were bound
   places were bound to the `BoardViewModel`.
 * `GameResultsPage` is the popup that was bound to the `ResultsViewModel`.
 * `HomePage` does not yet have a view model as it does nothing right now.
+
+## 8. CI testing
+
+Now that we have most of the code working and the builds running, we can start adding tests on CI to make sure we stay
+green.
+
+Testing is simple using `dotnet test`, but unlike Azure DevOps with a test results tab, we have to "create" our own tab
+by using a nice community action: https://github.com/marketplace/actions/test-reporter
+
+Once a build is complete, the test results will appear in the main pipeline with tables and charts showing how green we
+really are.
+
+## 9. Crash reporting
+
+We need to catch the crashes...
