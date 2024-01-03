@@ -1,4 +1,4 @@
-name: Tests
+name: Test
 
 on:
   pull_request:
@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Setup Required Tools
       uses: ./.github/workflows/setup-tools
-    - name: Build
+    - name: Test
       run: dotnet test ./src/CloudyTicTacToe.Games.Tests/CloudyTicTacToe.Games.Tests.csproj --configuration Debug --logger "trx;LogFileName=games.tests.trx" --results-directory=./artifacts/tests/ /bl:./artifacts/logs/msbuild-test.binlog
     - name: Upload Logs
       uses: actions/upload-artifact@v1
@@ -38,7 +38,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Setup Required Tools
       uses: ./.github/workflows/setup-tools
-    - name: Build
+    - name: Test
       run: dotnet test ./src/CloudyTicTacToe.Games.Tests/CloudyTicTacToe.Games.Tests.csproj --configuration Debug --logger "trx;LogFileName=games.tests.trx" --results-directory=./artifacts/tests/ /bl:./artifacts/logs/msbuild-test.binlog
     - name: Upload Logs
       uses: actions/upload-artifact@v1
