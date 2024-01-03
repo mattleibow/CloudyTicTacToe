@@ -1,0 +1,31 @@
+name: Test Results
+
+on:
+  workflow_run:
+    workflows: [ 'Test' ]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+
+  report:
+    name: Test Results
+    runs-on: ubuntu-latest
+    steps:
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: Test Results - Windows
+        name: Windows Tests
+        path: '*.trx'
+        reporter: dotnet-trx
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: Test Results - macOS
+        name: macOS Tests
+        path: '*.trx'
+        reporter: dotnet-trx

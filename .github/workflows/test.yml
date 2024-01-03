@@ -1,0 +1,54 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [ main, 'release/**' ]
+
+jobs:
+
+  windows:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Required Tools
+      uses: ./.github/workflows/setup-tools
+    - name: Test
+      run: dotnet test ./src/CloudyTicTacToe.Games.Tests/CloudyTicTacToe.Games.Tests.csproj --configuration Debug --logger "trx;LogFileName=games.tests.trx" --results-directory=./artifacts/tests/ /bl:./artifacts/logs/msbuild-test.binlog
+    - name: Upload Logs
+      uses: actions/upload-artifact@v1
+      if: ${{ always() }}
+      with:
+        name: Test Logs - Windows
+        path: ./artifacts/logs
+    - name: Upload Logs
+      uses: actions/upload-artifact@v1
+      if: ${{ always() }}
+      with:
+        name: Test Results - Windows
+        path: ./artifacts/tests
+
+  macos:
+    name: macOS
+    runs-on: macos-13
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Required Tools
+      uses: ./.github/workflows/setup-tools
+    - name: Test
+      run: dotnet test ./src/CloudyTicTacToe.Games.Tests/CloudyTicTacToe.Games.Tests.csproj --configuration Debug --logger "trx;LogFileName=games.tests.trx" --results-directory=./artifacts/tests/ /bl:./artifacts/logs/msbuild-test.binlog
+    - name: Upload Logs
+      uses: actions/upload-artifact@v1
+      if: ${{ always() }}
+      with:
+        name: Test Logs - macOS
+        path: ./artifacts/logs
+    - name: Upload Logs
+      uses: actions/upload-artifact@v1
+      if: ${{ always() }}
+      with:
+        name: Test Results - macOS
+        path: ./artifacts/tests
