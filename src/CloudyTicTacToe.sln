@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyTicTacToe", "app\CloudyTicTacToe.csproj", "{3722FBFF-849B-4652-B1A7-8B49A2230D8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyTicTacToe", "CloudyTicTacToe.ClientApp\CloudyTicTacToe.ClientApp.csproj", "{3722FBFF-849B-4652-B1A7-8B49A2230D8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyTicTacToe.Games", "CloudyTicTacToe.Games\CloudyTicTacToe.Games.csproj", "{746832FF-4245-4CDC-825D-3BEAAD90A19C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyTicTacToe.Games.Tests", "CloudyTicTacToe.Games.Tests\CloudyTicTacToe.Games.Tests.csproj", "{658D25A0-73EE-4369-8A15-B85916B3B8BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{3722FBFF-849B-4652-B1A7-8B49A2230D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3722FBFF-849B-4652-B1A7-8B49A2230D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3722FBFF-849B-4652-B1A7-8B49A2230D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{746832FF-4245-4CDC-825D-3BEAAD90A19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{746832FF-4245-4CDC-825D-3BEAAD90A19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{746832FF-4245-4CDC-825D-3BEAAD90A19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{746832FF-4245-4CDC-825D-3BEAAD90A19C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{658D25A0-73EE-4369-8A15-B85916B3B8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658D25A0-73EE-4369-8A15-B85916B3B8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658D25A0-73EE-4369-8A15-B85916B3B8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658D25A0-73EE-4369-8A15-B85916B3B8BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
